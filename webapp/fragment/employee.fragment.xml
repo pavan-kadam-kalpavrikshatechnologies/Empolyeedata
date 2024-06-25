@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+	xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+>
+	<Dialog
+		title="Add Expense">
+    <f:SimpleForm
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="{i18n>sr}" />
+				<Input id="idSr" value="{studentdata2>/sr}" liveChange="onLiveChange" valueState="{studentdata2>/valueStatesr}" valueStateText="{studentdata2>/ValueStateTextsr}" />
+
+				<Label text="{i18n>collage}" />
+				<Input id="idCollage" value="{studentdata2>/collagename}" liveChange="onLiveChange" valueState="{studentdata2>/valueStatecollagename}" valueStateText="{studentdata2>/ValueStateTextcollagename}">
+				</Input>
+
+				<Label text="{i18n>year}" />
+				<Input id="idYear" value="{studentdata2>/year}" liveChange="onLiveChange" valueState="{studentdata2>/valueStateyear}" valueStateText="{studentdata2>/ValueStateTextyear}" type="Number" />
+
+				<Label text="{i18n>degree}" />
+				<Input id="idDegree" value="{studentdata2>/degree}"  liveChange="onLiveChange" valueState="{studentdata2>/valueStatedegree}" valueStateText="{studentdata2>/ValueStateTextdegree}"/>
+
+				<Label text="{i18n>mark}" />
+				<Input id="idMark" value="{studentdata2>/markes}" liveChange="onLiveChange" valueState="{studentdata2>/valueStatemarkes}" valueStateText="{studentdata2>/ValueStateTextmarkes}" />
+			</f:content>
+		</f:SimpleForm>
+        <Button text="Save" press="onPressSave"  class="btnsave" />
+        <Button text="Close" press="onPressClose"  />
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,192 @@
+<mvc:View controllerName="sap.kt.empolyeedata.empolyeedata.controller.EmpolyeeView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" showHeader="false">
+        <content >
+		<Toolbar class="toolbar" >
+		<Title text="{i18n>title1}"></Title>
+		<Image src="../images/KT_Logo.png" width="35%"  class="img"></Image>
+		</Toolbar>
+            <IconTabBar
+		id="idIconTabBarMulti"
+		expanded="{device>/isNoPhone}"
+		class="sapUiResponsiveContentPadding" >
+		<items>
+			<IconTabFilter icon="sap-icon://hint" key="info" text="{i18n>empdetail}">
+            <f:SimpleForm id="SimpleFormChange480_12120Dual"
+			editable="true"
+			layout="ColumnLayout"
+			title="{i18n>basicdetail}"
+			labelSpanXL="4"
+			labelSpanL="4"
+			labelSpanM="12"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="0"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="2"
+			columnsM="2"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="{i18n>fname}" required="true" />
+				<Input type="Text" id="fname"/>
+
+				<Label text="{i18n>lname}"   required="true"/>
+				<Input  type="Text" id="lname"/>
+
+                <Label text="{i18n>dob}"  required="true" />
+                <Input type="Date"  change="onChange"  id="date1" />
+
+				<Label  text="Age"  required="true" />
+				<Input id="age" ></Input>
+
+                <Label text="{i18n>gender}" />
+                <RadioButtonGroup columns="2">
+                    <RadioButton text="Male" selected="true" />
+                    <RadioButton text="Female" />
+                </RadioButtonGroup>
+
+				<Label text="{i18n>address}"  required="true"></Label>
+				<TextArea value="" rows="3" id="address" />
+
+				<Label text="{i18n>country}"  required="true" />
+				<Select items="{country>/}" change="onChange2">
+					<core:Item key="{country>code}" text="{country>name}" />
+				</Select>
+
+				<Label text="{i18n>state}"  required="true" />
+				<Select items="{state>/}" id="model">
+					<core:Item key="{state>key}" text="{state>name}" id="state" />
+				</Select>
+				
+				<Label text="{i18n>city}"  required="true" />
+				<Input type="Text" id="city" />
+
+				<Label text="{i18n>pin}"  required="true"/>
+				<Input type="Number" id="pin" />
+
+				<Label text="{i18n>email}"  required="true" />
+				<Input type="Email" id="email" />
+
+				<Label text="{i18n>conatct}"  required="true"  />
+				<Input text="Number" id="contact" maxLength="13" />
+
+			</f:content>
+		</f:SimpleForm>
+
+		<Toolbar class="toolbar" >
+			<Title text="{i18n>title2}" class="eduction"></Title>
+			<Button text="{i18n>btn}" class="img" press="onPressBtn1" />
+		</Toolbar>
+
+		<Table alternateRowColors="true" class="customTable" id="TableId" items="{path:'studentdata>/'}" mode="Delete" delete="onDelete" >
+								<columns class="columns1">
+									<Column>
+										<Text text="{i18n>sr}" class="heading" ></Text>
+									</Column>
+									<Column>
+										<Text text="{i18n>collage}" class="heading" ></Text>
+									</Column>
+									<Column>
+										<Text text="{i18n>year}" class="heading" ></Text>
+									</Column>
+									<Column>
+										<Text text="{i18n>degree}" class="heading" ></Text>
+									</Column>
+									<Column>
+										<Text text="{i18n>mark}" class="heading" ></Text>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem class="row1" id="colmunListId">
+										<cells>
+											<Text text="{studentdata>sr}"/>
+											<Text text="{studentdata>collagename}"/>
+											<Text text="{studentdata>year}"/>
+											<Text text="{studentdata>degree}"/>
+											<Text text="{studentdata>markes}"/>
+										</cells>
+									</ColumnListItem>
+									
+								</items>
+							</Table>
+						
+			</IconTabFilter>
+			<IconTabFilter
+				icon="sap-icon://attachment"
+				text="{i18n>empattachment}">
+
+				<f:SimpleForm id="SimpleFormChange480_12120Dual2"
+			editable="true"
+			layout="ColumnLayout"
+			title=""
+			labelSpanXL="4"
+			labelSpanL="4"
+			labelSpanM="12"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="0"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="2"
+			columnsM="2"
+			singleContainerFullSize="false" >
+
+			<Label text="{i18n>pan}"/>
+						<u:FileUploader
+                id="fileUploader"
+                name="myFileUpload"
+                uploadUrl="upload/"
+                tooltip="Upload your file to the local server"
+                uploadComplete="handleUploadComplete"/>
+						<Label text="{i18n>adhar}"/>
+						<u:FileUploader
+                id="fileUploader1"
+                name="myFileUpload"
+                uploadUrl="upload/"
+                tooltip="Upload your file to the local server"
+                uploadComplete="handleUploadComplete"/>
+						<Label text="{i18n>10th}"/>
+						<u:FileUploader
+                id="fileUploader2"
+                name="myFileUpload"
+                uploadUrl="upload/"
+                tooltip="Upload your file to the local server"
+                uploadComplete="handleUploadComplete"/>
+						<Label text="{i18n>12th}"/>
+						<u:FileUploader
+                id="fileUploader3"
+                name="myFileUpload"
+                uploadUrl="upload/"
+                tooltip="Upload your file to the local server"
+                uploadComplete="handleUploadComplete"/>
+						<Label text="{i18n>degreecard}"/>
+						<u:FileUploader
+                id="fileUploader4"
+                name="myFileUpload"
+                uploadUrl="upload/"
+                tooltip="Upload your file to the local server"
+                uploadComplete="handleUploadComplete"/>
+			</f:SimpleForm>
+			</IconTabFilter>
+		</items>
+	</IconTabBar>
+        </content>
+		<footer>
+               <Bar >
+			   <contentRight>
+			    <Button text="{i18n>btn2}" width="" class="btn" press="onPressBtn" />
+			   </contentRight>
+			   </Bar>
+        </footer>
+    </Page>
+</mvc:View>
